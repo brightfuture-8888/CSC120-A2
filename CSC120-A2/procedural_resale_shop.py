@@ -15,6 +15,8 @@ from typing import Dict, Optional
     The key is an int representing the item number
     The value is another dictionary containing information about the machine
 """
+
+# inventory includes dictionary 
 inventory : Dict[int, Dict] = {}
 
 itemID = 0 # We'll increment this every time we add a new item 
@@ -24,6 +26,7 @@ itemID = 0 # We'll increment this every time we add a new item
 Takes in a Dict containing all the information about a computer,
 adds it to the inventory, returns the assigned item_id
 """
+# define buy method when we want to buy idemID
 def buy(computer: Dict):
     global itemID
     itemID += 1 # increment itemID
@@ -34,9 +37,10 @@ def buy(computer: Dict):
 Takes in an item_id and a new price, updates the price of the associated
 computer if it is the inventory, prints error message otherwise
 """
+# define update_price method: if idemID is in nventory, set a new price. Else, print out not found. Cannot update price.
 def update_price(item_id: int, new_price: int):
     if item_id in inventory:
-        inventory[item_id]["price"] = new_price
+        inventory[item_id]["price"] = new_price 
     else:
         print("Item", item_id, "not found. Cannot update price.")
 
@@ -44,6 +48,8 @@ def update_price(item_id: int, new_price: int):
 Takes in an item_id, removes the associated computer if it is the inventory, 
 prints error message otherwise
 """
+
+# define sell method: if item_id is in inventory print Item. Else, print item 'item.id' not found. Please select another item to sell.
 def sell(item_id: int):
     if item_id in inventory:
         del inventory[item_id]
@@ -64,25 +70,26 @@ def print_inventory():
     else:
         print("No inventory to display.")
 
+# define refurbish method 
 def refurbish(item_id: int, new_os: Optional[str] = None):
-    if item_id in inventory:
+    if item_id in inventory: # if idem_id is in inventory 
         computer = inventory[item_id] # locate the computer
-        if int(computer["year_made"]) < 2000:
+        if int(computer["year_made"]) < 2000: # and if the computer is made in less than 2000
             computer["price"] = 0 # too old to sell, donation only
-        elif int(computer["year_made"]) < 2012:
+        elif int(computer["year_made"]) < 2012: # and if the computer is made in less than 2012 
             computer["price"] = 250 # heavily-discounted price on machines 10+ years old
-        elif int(computer["year_made"]) < 2018:
+        elif int(computer["year_made"]) < 2018: # and if the computer is made in less than 2018 
             computer["price"] = 550 # discounted price on machines 4-to-10 year old machines
         else:
-            computer["price"] = 1000 # recent stuff
+            computer["price"] = 1000 # recent stuff 
 
         if new_os is not None:
             computer["operating_system"] = new_os # update details after installing new OS
     else:
         print("Item", item_id, "not found. Please select another item to refurbish.")
 
-def main():
+def main(): 
     buy({"description":"2019 MacBook Pro", "processor_type":"Intel", "hard_drive_capacity":256, "memory":16, "operating_system":"High Sierra", "year_made":2019, "price":1000})
-    print_inventory()
+    print_inventory() 
 
-main()
+main() 

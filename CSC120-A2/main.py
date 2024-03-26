@@ -1,5 +1,5 @@
 # Import a few useful containers from the typing module
-from typing import Dict, Union
+from typing import Dict, Union 
 
 # Import the functions we wrote in procedural_resale_shop.py
 from procedural_resale_shop import buy, update_price, sell, print_inventory, refurbish
@@ -11,6 +11,7 @@ from procedural_resale_shop import buy, update_price, sell, print_inventory, ref
     explicit data types (str, int, etc.) listed in a python function. We're 
     going to go the extra step, because when we get to Java it'll be required!
 """
+# defining computer 
 def create_computer(description: str,
                     processor_type: str,
                     hard_drive_capacity: int,
@@ -18,6 +19,8 @@ def create_computer(description: str,
                     operating_system: str,
                     year_made: int,
                     price: int):
+    
+    #return values of what we defined above
     return {'description': description,
             'processor_type': processor_type,
             'hard_drive_capacity': hard_drive_capacity,
