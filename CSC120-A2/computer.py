@@ -1,10 +1,10 @@
 from typing import Optional
 
-
+# Create Computer Class  
 class Computer:
 
-    # What attributes will it need? 
-    description: str
+    # attributes
+    description: str 
     processor_type: str
     hard_drive_capacity: int
     memory: int
@@ -12,8 +12,8 @@ class Computer:
     year_made: int
     price: int 
 
-    # How will you set up your constructor?
-    # Remember: in python, all constructors have the same name (__init__)
+    # constructor
+    # In python, all constructors have the same name (__init__) 
     def __init__(self,description: str,
                     processor_type: str,
                     hard_drive_capacity: int,
@@ -27,8 +27,8 @@ class Computer:
         self.operating_system=operating_system
         self.year_made=year_made
         self.price=price
-    def update_price(self,new_price: int):
-        self.price=new_price
+    def update_price(self,new_price: int): # update price method 
+        self.price=new_price # set price as new price 
 
     def refurbish(self,computer: str,new_os: Optional[str] = None):
            if self.year_made < 2000:
@@ -43,9 +43,16 @@ class Computer:
            if new_os is not None:
                computer.operating_system = new_os # update details after installing new OS
            else:
-                print("not found. Please select another item to refurbish.")
+                print("not found. Please select another item to refurbish.") # else print "not found. Please select another item to refurbish." 
 
-    # What methods will you need?
+    # Create main with 
+        #description "MacBookcomputer"
+        #processor_type "Retina"
+        #hard_drive_capacity "200"
+        #memory "130"   
+        #operating_system "Apple"
+        #year_made "2018"
+        #price "2000" 
 def main():
     mycomputer=Computer("MacBookcomputer","Retina",200,130,"Apple",2018,2000)
 
